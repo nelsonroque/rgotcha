@@ -1,0 +1,12 @@
+Package: rgotcha
+Title: Learning quirky R things.
+Version: 0.0.0.9000
+Authors@R: 
+    person("Nelson", "Roque", , "nur375@psu.edu", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-1184-202X"))
+Description: Learning quirky R things.
+License: MIT
+Encoding: UTF-8
+Imports: dplyr, glue, ggplot2, tidyr, readr, purrr, stringr, forcats, tibble, lubridate, rvest, httr
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1

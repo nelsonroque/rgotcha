@@ -1,0 +1,152 @@
+---
+title: "R Data Gotchas! - Episode 1"
+author: "Dr. Nelson Roque"
+format: html
+editor: visual
+---
+
+```{r}
+# Load libraries ----
+library(tidyverse)  # For data wrangling and visualization
+library(digest)     # For generating data hashes
+```
+
+# Problem: The Quirky Data Import Issue
+
+When working with R, we assume that loading the same dataset using different functions should yield identical data structures. **But is that always the case?**
+
+Let's explore a subtle yet important quirk in data loading that can affect your analyses without you even realizing it.
+
+------------------------------------------------------------------------
+
+## Loading Data: The Sneaky Difference
+
+Here, we load the same CSV file using two different functions:
+
+```{r}
+# Load two datasets ----
+df_a = read.csv("../data/sample_data_with_header.csv")  # Base R function
+
+df_b = readr::read_csv("../data/sample_data_with_header.csv")  # Tidyverse function
+```
+
+At first glance, these datasets may appear identical. But let’s do a quick comparison to check for hidden differences.
+
+------------------------------------------------------------------------
+
+## Problem, Visualized
+
+To highlight potential differences, let’s extract the first column from each dataset and place them side by side:
+
+```{r}
+# Create a tibble to compare first columns ----
+quick_compare = tibble::tibble(
+  df_a_col_sample = df_a[,1],
+  df_b_col_sample = df_b[,1] %>% pull(.)
+)
+
+# Print the tibble to see differences
+quick_compare
+```
+
+### What’s Going On?
+
+-   Base R’s `read.csv()` **automatically converts character columns into factors** unless specified otherwise.
+-   `readr::read_csv()` **always treats text as character by default**.
+
+This subtle difference can cause unexpected behavior in categorical data, leading to issues in factor-based operations.
+
+------------------------------------------------------------------------
+
+## Data Quality Checks: Can You Spot the Issue?
+
+If we check for missing values, both datasets might appear the same:
+
+```{r}
+# Get missingness for each column ----
+missing_a = colMeans(is.na(df_a))
+missing_b = colMeans(is.na(df_b))
+```
+
+This is misleading because missingness checks don’t reveal structural differences in data types.
+
+------------------------------------------------------------------------
+
+## The Ultimate Check: Are These Dataframes Truly Identical?
+
+A foolproof way to verify differences is by **hashing** each dataset and comparing them - generate unique hashes (e.g., MD5, SHA256):
+
+```{r}
+# Generate unique hashes for each dataset ----
+df_a_hash = digest::digest(df_a)
+df_b_hash = digest::digest(df_b)
+
+# Compare hashes ----
+df_a_hash == df_b_hash  
+# If FALSE, the datasets are different!
+```
+
+------------------------------------------------------------------------
+
+### The Reveal: What’s Different?
+
+If the hashes don’t match, it confirms that `df_a` and `df_b` are not identical—even though they originated from the same file.
+
+**Common Differences Include:** - Factor vs. Character Columns
+
+```{r}
+df_a_glimpse = dplyr::glimpse(df_a)
+df_b_glimpse = dplyr::glimpse(df_b)
+
+```
+
+Definitely something funky when you stare with your eyeballs.
+
+-   Different Default Column Types
+
+```{r}
+df_a_col_types = df_a %>%
+  summarise(across(everything(), ~ class(.)[1], .names = "{.col}")) %>%
+  pivot_longer(everything(), names_to = "col_name", values_to = "col_type")
+  
+df_b_col_types = df_b %>%
+  summarise(across(everything(), ~ class(.)[1], .names = "{.col}")) %>%
+  pivot_longer(everything(), names_to = "col_name", values_to = "col_type")
+```
+
+Hmm... something here.
+
+-   Header Parsing Differences
+
+```{r}
+df_a_header = names(df_a)
+df_b_header = names(df_b)
+
+df_a_header == df_b_header
+```
+
+so that's not it...
+
+------------------------------------------------------------------------
+
+## Takeaways: How to Avoid This Gotcha
+
+✅ Always inspect your data types using `str(df)` or `glimpse(df)` after loading.
+
+✅ Use `stringsAsFactors = FALSE` in `read.csv()` if you want character data instead of factors.
+
+✅ Prefer `readr::read_csv()` for a more predictable and consistent import behavior.
+
+✅ Hashing your data is a great way to check for hidden differences.
+
+------------------------------------------------------------------------
+
+## Acknowledgements
+
+HUGE thank you to Dr. Daniel Roberts for flagging this issue for this episode of `rgotcha`.
+
+------------------------------------------------------------------------
+
+**Stay tuned for more moments when R Gotcha!** 🚀
+
+Have a gotcha to submit? Submit an Issue on Github.
