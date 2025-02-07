@@ -1,5 +1,5 @@
 ---
-title: "R Data Gotchas! - Episode 1"
+title: "R Gotcha! - Episode 1"
 author: "Dr. Nelson Roque"
 format: html
 editor: visual
@@ -135,7 +135,7 @@ so that's not it...
 
 ✅ Use `stringsAsFactors = FALSE` in `read.csv()` if you want character data instead of factors.
 
-✅ Prefer `readr::read_csv()` for a more predictable and consistent import behavior.
+✅ Prefer `readr::read_csv()` for a more predictable and consistent import behavior, but know the defaults.
 
 ✅ Hashing your data is a great way to check for hidden differences.
 

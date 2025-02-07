@@ -5,13 +5,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>R Data Gotchas! - Episode 1 • rgotcha</title>
+<title>R Gotcha! - Episode 1 • rgotcha</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="R Data Gotchas! - Episode 1">
+<script src="../pkgdown.js"></script><meta property="og:title" content="R Gotcha! - Episode 1">
 <meta property="og:description" content="rgotcha">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rgotcha</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.1</span>
       </span>
     </div>
 
@@ -50,7 +50,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/load_data_scary.html">R Data Gotchas! - Episode 1</a>
+      <a href="../articles/load_data_scary.html">R Gotcha! - Episode 1</a>
     </li>
   </ul>
 </li>
@@ -71,7 +71,7 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>R Data Gotchas! - Episode 1</h1>
+      <h1 data-toc-skip>R Gotcha! - Episode 1</h1>
                         <h4 data-toc-skip class="author">Dr. Nelson
 Roque</h4>
             
@@ -106,6 +106,7 @@ different functions should yield identical data structures. <strong>But
 is that always the case?</strong></p>
 <p>Let’s explore a subtle yet important quirk in data loading that can
 affect your analyses without you even realizing it.</p>
+<hr>
 <div class="section level3">
 <h3 id="loading-data-the-sneaky-difference">Loading Data: The Sneaky Difference<a class="anchor" aria-label="anchor" href="#loading-data-the-sneaky-difference"></a>
 </h3>
@@ -125,6 +126,7 @@ affect your analyses without you even realizing it.</p>
 <span><span class="co">## <span style="color: #00BBBB;">ℹ</span> Specify the column types or set `show_col_types = FALSE` to quiet this message.</span></span></code></pre>
 <p>At first glance, these datasets may appear identical. But let’s do a
 quick comparison to check for hidden differences.</p>
+<hr>
 </div>
 <div class="section level3">
 <h3 id="problem-visualized">Problem, Visualized<a class="anchor" aria-label="anchor" href="#problem-visualized"></a>
@@ -134,34 +136,35 @@ from each dataset and place them side by side:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a tibble to compare first columns ----</span></span>
 <span><span class="va">quick_compare</span> <span class="op">=</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
-<span>  dataset_a_col_sample <span class="op">=</span> <span class="va">df_a</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span>,</span>
-<span>  dataset_b_col_sample <span class="op">=</span> <span class="va">df_b</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span>
+<span>  df_a_col_sample <span class="op">=</span> <span class="va">df_a</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span>,</span>
+<span>  df_b_col_sample <span class="op">=</span> <span class="va">df_b</span><span class="op">[</span>,<span class="fl">1</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">quick_compare</span>  <span class="co"># Print the tibble to see differences</span></span></code></pre></div>
+<span><span class="co"># Print the tibble to see differences</span></span>
+<span><span class="va">quick_compare</span></span></code></pre></div>
 <pre><code><span><span class="co">## <span style="color: #949494;"># A tibble: 20 × 2</span></span></span>
-<span><span class="co">##    dataset_a_col_sample dataset_b_col_sample</span></span>
-<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> <span style="color: #BB0000;">NA</span>                                     <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> <span style="color: #BB0000;">NA</span>                                     <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 7                                       7</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 7                                       7</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> <span style="color: #BB0000;">NA</span>                                     <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 7,6                                    76</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> <span style="color: #BB0000;">NA</span>                                     <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 5                                       5</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 3                                       3</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">10</span> <span style="color: #BB0000;">NA</span>                                     <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">11</span> <span style="color: #BB0000;">NA</span>                                     <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">12</span> <span style="color: #BB0000;">NA</span>                                     <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">13</span> 4                                       4</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">14</span> <span style="color: #BB0000;">NA</span>                                     <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">15</span> 2,6                                    26</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">16</span> 1                                       1</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">17</span> <span style="color: #BB0000;">NA</span>                                     <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">18</span> 6                                       6</span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">19</span> <span style="color: #BB0000;">NA</span>                                     <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">## <span style="color: #BCBCBC;">20</span> <span style="color: #BB0000;">NA</span>                                     <span style="color: #BB0000;">NA</span></span></span></code></pre>
+<span><span class="co">##    df_a_col_sample df_b_col_sample</span></span>
+<span><span class="co">##    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 1</span> <span style="color: #BB0000;">NA</span>                           <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 2</span> <span style="color: #BB0000;">NA</span>                           <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 3</span> 7                             7</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 4</span> 7                             7</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 5</span> <span style="color: #BB0000;">NA</span>                           <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 6</span> 7,6                          76</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 7</span> <span style="color: #BB0000;">NA</span>                           <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 8</span> 5                             5</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;"> 9</span> 3                             3</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">10</span> <span style="color: #BB0000;">NA</span>                           <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">11</span> <span style="color: #BB0000;">NA</span>                           <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">12</span> <span style="color: #BB0000;">NA</span>                           <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">13</span> 4                             4</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">14</span> <span style="color: #BB0000;">NA</span>                           <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">15</span> 2,6                          26</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">16</span> 1                             1</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">17</span> <span style="color: #BB0000;">NA</span>                           <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">18</span> 6                             6</span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">19</span> <span style="color: #BB0000;">NA</span>                           <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">## <span style="color: #BCBCBC;">20</span> <span style="color: #BB0000;">NA</span>                           <span style="color: #BB0000;">NA</span></span></span></code></pre>
 <div class="section level4">
 <h4 id="whats-going-on">What’s Going On?<a class="anchor" aria-label="anchor" href="#whats-going-on"></a>
 </h4>
@@ -174,6 +177,7 @@ character by default</strong>.</li>
 </ul>
 <p>This subtle difference can cause unexpected behavior in categorical
 data, leading to issues in factor-based operations.</p>
+<hr>
 </div>
 </div>
 <div class="section level3">
@@ -187,20 +191,25 @@ same:</p>
 <span><span class="va">missing_b</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">colMeans</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">df_b</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>This is misleading because missingness checks don’t reveal structural
 differences in data types.</p>
+<hr>
 </div>
 <div class="section level3">
 <h3 id="the-ultimate-check-are-these-dataframes-truly-identical">The Ultimate Check: Are These Dataframes Truly Identical?<a class="anchor" aria-label="anchor" href="#the-ultimate-check-are-these-dataframes-truly-identical"></a>
 </h3>
 <p>A foolproof way to verify differences is by <strong>hashing</strong>
-each dataset and comparing them:</p>
+each dataset and comparing them - generate unique hashes (e.g., MD5,
+SHA256):</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Generate unique hashes for each dataset ----</span></span>
 <span><span class="va">df_a_hash</span> <span class="op">=</span> <span class="fu">digest</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/digest/man/digest.html" class="external-link">digest</a></span><span class="op">(</span><span class="va">df_a</span><span class="op">)</span></span>
 <span><span class="va">df_b_hash</span> <span class="op">=</span> <span class="fu">digest</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/digest/man/digest.html" class="external-link">digest</a></span><span class="op">(</span><span class="va">df_b</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Compare hashes ----</span></span>
-<span><span class="va">df_a_hash</span> <span class="op">==</span> <span class="va">df_b_hash</span>  <span class="co"># If FALSE, the datasets are different!</span></span></code></pre></div>
+<span><span class="va">df_a_hash</span> <span class="op">==</span> <span class="va">df_b_hash</span>  </span></code></pre></div>
 <pre><code><span><span class="co">## [1] FALSE</span></span></code></pre>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># If FALSE, the datasets are different!</span></span></code></pre></div>
+<hr>
 <div class="section level4">
 <h4 id="the-reveal-whats-different">The Reveal: What’s Different?<a class="anchor" aria-label="anchor" href="#the-reveal-whats-different"></a>
 </h4>
@@ -208,8 +217,59 @@ each dataset and comparing them:</p>
 <code>df_b</code> are not identical—even though they originated from the
 same file.</p>
 <p><strong>Common Differences Include:</strong> - Factor vs. Character
-Columns - Different Default Column Types - Header Parsing
-Differences</p>
+Columns</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_a_glimpse</span> <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">df_a</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## Rows: 20</span></span>
+<span><span class="co">## Columns: 10</span></span>
+<span><span class="co">## $ Column_1  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, "7", "7", NA, "7,6", NA, "5", "3", NA, NA, NA, "4", …</span></span>
+<span><span class="co">## $ Column_2  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2,4", "7,6", NA, NA, "8", "5", NA, NA, "7", "6", "7", NA, "…</span></span>
+<span><span class="co">## $ Column_3  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "5", "4", NA, NA, NA, "1,4", "4", NA, NA, "5", NA, "1,4", NA…</span></span>
+<span><span class="co">## $ Column_4  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "7", NA, NA, "2,4", "1", "2", NA, "4", NA, "8", "8", "4", NA…</span></span>
+<span><span class="co">## $ Column_5  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> NA, NA, NA, "2,6", NA, "7", NA, "6", NA, "5", "1", "7", NA, …</span></span>
+<span><span class="co">## $ Column_6  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> NA, NA, 4, 4, 6, 1, 8, 5, NA, 8, NA, 3, NA, NA, NA, NA, 3, N…</span></span>
+<span><span class="co">## $ Column_7  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> NA, NA, NA, NA, NA, NA, NA, 5, 5, 8, NA, 4, 4, 8, 7, 6, NA, …</span></span>
+<span><span class="co">## $ Column_8  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> 3, 8, 8, NA, 8, NA, 4, NA, 7, NA, 5, NA, 3, 6, 8, 5, NA, NA,…</span></span>
+<span><span class="co">## $ Column_9  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "7", NA, "7", "6", "8", NA, NA, NA, "2", NA, NA, "2", NA, NA…</span></span>
+<span><span class="co">## $ Column_10 <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "6", NA, NA, NA, NA, NA, "5,7", NA, "8", NA, NA, "8", "8", "…</span></span></code></pre>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_b_glimpse</span> <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">df_b</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## Rows: 20</span></span>
+<span><span class="co">## Columns: 10</span></span>
+<span><span class="co">## $ Column_1  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, 7, 7, NA, 76, NA, 5, 3, NA, NA, NA, 4, NA, 26, 1, NA…</span></span>
+<span><span class="co">## $ Column_2  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 24, 76, NA, NA, 8, 5, NA, NA, 7, 6, 7, NA, 2, NA, NA, NA, 7,…</span></span>
+<span><span class="co">## $ Column_3  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 5, 4, NA, NA, NA, 14, 4, NA, NA, 5, NA, 14, NA, NA, 8, NA, 7…</span></span>
+<span><span class="co">## $ Column_4  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 7, NA, NA, 24, 1, 2, NA, 4, NA, 8, 8, 4, NA, NA, NA, 8, 8, N…</span></span>
+<span><span class="co">## $ Column_5  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, 26, NA, 7, NA, 6, NA, 5, 1, 7, NA, 14, NA, 57, N…</span></span>
+<span><span class="co">## $ Column_6  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, 4, 4, 6, 1, 8, 5, NA, 8, NA, 3, NA, NA, NA, NA, 3, N…</span></span>
+<span><span class="co">## $ Column_7  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> NA, NA, NA, NA, NA, NA, NA, 5, 5, 8, NA, 4, 4, 8, 7, 6, NA, …</span></span>
+<span><span class="co">## $ Column_8  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 3, 8, 8, NA, 8, NA, 4, NA, 7, NA, 5, NA, 3, 6, 8, 5, NA, NA,…</span></span>
+<span><span class="co">## $ Column_9  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 7, NA, 7, 6, 8, NA, NA, NA, 2, NA, NA, 2, NA, NA, NA, NA, NA…</span></span>
+<span><span class="co">## $ Column_10 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> 6, NA, NA, NA, NA, NA, 57, NA, 8, NA, NA, 8, 8, 76, NA, 5, 7…</span></span></code></pre>
+<p>Definitely something funky when you stare with your eyeballs.</p>
+<ul>
+<li>Different Default Column Types</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_a_col_types</span> <span class="op">=</span> <span class="va">df_a</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html" class="external-link">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, .names <span class="op">=</span> <span class="st">"{.col}"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"col_name"</span>, values_to <span class="op">=</span> <span class="st">"col_type"</span><span class="op">)</span></span>
+<span>  </span>
+<span><span class="va">df_b_col_types</span> <span class="op">=</span> <span class="va">df_b</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html" class="external-link">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, .names <span class="op">=</span> <span class="st">"{.col}"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="external-link">pivot_longer</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"col_name"</span>, values_to <span class="op">=</span> <span class="st">"col_type"</span><span class="op">)</span></span></code></pre></div>
+<p>Hmm… something here.</p>
+<ul>
+<li>Header Parsing Differences</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df_a_header</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">df_a</span><span class="op">)</span></span>
+<span><span class="va">df_b_header</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">df_b</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df_a_header</span> <span class="op">==</span> <span class="va">df_b_header</span></span></code></pre></div>
+<pre><code><span><span class="co">##  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</span></span></code></pre>
+<p>so that’s not it…</p>
+<hr>
 </div>
 </div>
 <div class="section level3">
@@ -224,12 +284,17 @@ factors.</p>
 consistent import behavior.</p>
 <p>✅ Hashing your data is a great way to check for hidden
 differences.</p>
+<hr>
 </div>
 <div class="section level3">
 <h3 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
 </h3>
-<p>Huge thank you to Dr. Daniel Roberts for flagging this.</p>
-<p><strong>Stay tuned for more R-Gotchas!</strong> 🚀</p>
+<p>HUGE thank you to Dr. Daniel Roberts for flagging this issue for this
+episode of <code>rgotcha</code>.</p>
+<hr>
+<p><strong>Stay tuned for more moments when R Gotcha!</strong> 🚀</p>
+<p>📌 <em>Got an R gotcha you’d like us to cover? <a href="https://github.com/nelsonroque/rgotcha/issues" class="external-link">Open an issue</a>
+and suggest a topic!</em></p>
 </div>
 </div>
   </div>

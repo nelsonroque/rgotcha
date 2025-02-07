@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">rgotcha</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.1</span>
       </span>
     </div>
 
@@ -50,7 +50,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="articles/load_data_scary.html">R Data Gotchas! - Episode 1</a>
+      <a href="articles/load_data_scary.html">R Gotcha! - Episode 1</a>
     </li>
   </ul>
 </li>
@@ -70,40 +70,111 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-
 <div class="section level1">
-<div class="page-header"><h1 id="rgotcha-">rgotcha <img src="reference/figures/logo.png" align="right"><a class="anchor" aria-label="anchor" href="#rgotcha-"></a>
+<div class="page-header"><h1 id="r-gotcha-huh-rgotcha-">R Gotcha, huh? rgotcha <img src="reference/figures/logo.png" align="right"><a class="anchor" aria-label="anchor" href="#r-gotcha-huh-rgotcha-"></a>
 </h1></div>
-<p>An R package to help you unravel the mysteries of R code.</p>
+<p><strong>An R package to help you unravel the mysteries of R code.</strong></p>
+<blockquote>
+<p>🚀 A lightweight R package with various vignettes to help you get unstuck and learn R quirks.</p>
+</blockquote>
+<hr>
+<div class="section level2">
+<h2 id="id_-overview">📖 Overview<a class="anchor" aria-label="anchor" href="#id_-overview"></a>
+</h2>
+<p>R is a powerful language, but it comes with plenty of surprises. <code>rgotcha</code> is here to help you navigate those tricky moments—whether it’s an unexpected date format, a mysterious error, or an odd behavior in file writing.</p>
+<p>This package offers a collection of <strong>bite-sized lessons (“episodes”)</strong> that explain common pitfalls and how to work around them.</p>
+<p>This package ALSO features a couple helpful functions from being in the data trenches.</p>
+<pre><code><span><span class="fu">view_vignette</span><span class="op">(</span><span class="st">"load_data_scary.qmd"</span>, <span class="st">"rgotcha"</span><span class="op">)</span></span></code></pre>
+<hr>
 </div>
-<div class="section level1">
-<h1 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
-</h1>
-<p>A lightweight R package with various vignettes.</p>
-<p>📌 Features (Current &amp; Planned)</p>
-<p>✔️ Learn how to unstuck yourself.</p>
+<div class="section level2">
+<h2 id="id_-getting-started">🚀 Getting Started<a class="anchor" aria-label="anchor" href="#id_-getting-started"></a>
+</h2>
+<div class="section level3">
+<h3 id="id_-install-the-package-if-hosted-on-github">📦 Install the Package (if hosted on GitHub)<a class="anchor" aria-label="anchor" href="#id_-install-the-package-if-hosted-on-github"></a>
+</h3>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"nelsonroque/rgotcha"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level1">
-<h1 id="id_-getting-started">🚀 Getting Started<a class="anchor" aria-label="anchor" href="#id_-getting-started"></a>
-</h1>
+<div class="section level3">
+<h3 id="id_-load-the-package">🔌 Load the Package<a class="anchor" aria-label="anchor" href="#id_-load-the-package"></a>
+</h3>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">rgotcha</span><span class="op">)</span></span></code></pre></div>
+<hr>
 </div>
-<div class="section level1">
-<h1 id="install-the-package-if-hosted-on-github">Install the package (if hosted on GitHub)<a class="anchor" aria-label="anchor" href="#install-the-package-if-hosted-on-github"></a>
-</h1>
-<p><code>devtools::install_github("nelsonroque/rgotcha")</code></p>
 </div>
-<div class="section level1">
-<h1 id="load-the-package">Load the package<a class="anchor" aria-label="anchor" href="#load-the-package"></a>
-</h1>
-<p><code><a href="https://rdrr.io/r/base/library.html" class="external-link">library(rgotcha)</a></code></p>
+<div class="section level2">
+<h2 id="id_-episodes-ongoing-series">🎬 Episodes (Ongoing Series)<a class="anchor" aria-label="anchor" href="#id_-episodes-ongoing-series"></a>
+</h2>
+<p>We release <strong>weekly/monthly “episodes”</strong> covering different R gotchas!</p>
+<table class="table">
+<colgroup>
+<col width="31%">
+<col width="24%">
+<col width="44%">
+</colgroup>
+<thead><tr class="header">
+<th>Episode</th>
+<th>Topic</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>PILOT</td>
+<td>Isn’t it the Same Dataset?</td>
+<td>Weird file reading fun.</td>
+</tr>
+<tr class="even">
+<td>1️⃣</td>
+<td>Quirky Date Things</td>
+<td>Unusual date formats, time zone surprises, and how to avoid common datetime pitfalls.</td>
+</tr>
+<tr class="odd">
+<td>2️⃣</td>
+<td>File Writing Fun</td>
+<td>How file paths, encodings, and permissions can trip you up when working with files.</td>
+</tr>
+<tr class="even">
+<td>3️⃣</td>
+<td>Why You Hash</td>
+<td>The role of <code>#</code> in debugging, performance, and organizing your code.</td>
+</tr>
+<tr class="odd">
+<td>4️⃣</td>
+<td>Data Frames That Aren’t</td>
+<td>When your data isn’t quite a data frame (tibbles, lists, etc.), and how to handle them.</td>
+</tr>
+<tr class="even">
+<td>5️⃣</td>
+<td>
+<code>NA</code> vs. <code>NULL</code> vs. <code>NaN</code>
+</td>
+<td>Understanding the nuances between missing values, empty values, and undefined numbers.</td>
+</tr>
+</tbody>
+</table>
+<p>📌 <em>Got an R gotcha you’d like us to cover? <a href="https://github.com/nelsonroque/rgotcha/issues" class="external-link">Open an issue</a> and suggest a topic!</em></p>
+<hr>
 </div>
-<div class="section level1">
-<h1 id="contributions">Contributions<a class="anchor" aria-label="anchor" href="#contributions"></a>
-</h1>
-<p>📢 Contributions welcome! Feel free to open an issue or submit a pull request. (CODE OF CONDUCT LINK GOES HERE)</p>
-<p>Let me know if you want a more detailed roadmap or tweaks! 🚀</p>
+<div class="section level2">
+<h2 id="id_-roadmap">🛣 Roadmap<a class="anchor" aria-label="anchor" href="#id_-roadmap"></a>
+</h2>
+<p><strong>Coming Soon:</strong><br>
+- More quirky date things<br>
+- More file writing fun<br>
+- Expanding on debugging strategies<br>
+- Common pitfalls in working with APIs<br>
+- Unexpected behavior in loops and functional programming</p>
+<hr>
 </div>
-
+<div class="section level2">
+<h2 id="id_-contributions">🤝 Contributions<a class="anchor" aria-label="anchor" href="#id_-contributions"></a>
+</h2>
+<p>📢 Contributions are welcome! Found an R mystery you’d like to document? Open an issue or submit a pull request.<br>
+📜 <strong><a href="#">Code of Conduct</a> - Please be respectful and follow community guidelines.</strong></p>
+</div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

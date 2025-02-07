@@ -11,6 +11,12 @@ R is a powerful language, but it comes with plenty of surprises. `rgotcha` is he
 
 This package offers a collection of **bite-sized lessons ("episodes")** that explain common pitfalls and how to work around them.
 
+This package ALSO features a couple helpful functions from being in the data trenches.
+
+```
+view_vignette("load_data_scary.qmd", "rgotcha")
+```
+
 ---
 
 ## 🚀 Getting Started

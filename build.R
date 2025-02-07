@@ -1,4 +1,5 @@
 # build package ----
+devtools::build_vignettes()
 devtools::check()
 devtools::document()
 devtools::build()
