@@ -149,4 +149,4 @@ HUGE thank you to Dr. Daniel Roberts for flagging this issue for this episode of
 
 **Stay tuned for more moments when R Gotcha!** 🚀
 
-Have a gotcha to submit? Submit an Issue on Github.
+📌 *Got an R gotcha you’d like us to cover? [Open an issue](https://github.com/nelsonroque/rgotcha/issues) and suggest a topic!*
