@@ -61,7 +61,7 @@ We release **weekly/monthly "episodes"** covering different R gotchas!
 
 ---
 
-## 🤝 Contributions  
+## 🤝 Join the Cast!
 
 📢 Contributions are welcome! Found an R mystery you'd like to document? Open an issue or submit a pull request.  
 📜 **[Code of Conduct](#) - Please be respectful and follow community guidelines.**

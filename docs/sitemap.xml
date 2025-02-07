@@ -22,15 +22,9 @@
     <loc>/news/index.html</loc>
   </url>
   <url>
-    <loc>/reference/hello.html</loc>
-  </url>
-  <url>
     <loc>/reference/index.html</loc>
   </url>
   <url>
     <loc>/reference/verbose_hello.html</loc>
-  </url>
-  <url>
-    <loc>/reference/view_vignette.html</loc>
   </url>
 </urlset>
