@@ -1,0 +1,258 @@
+---
+title: "R Gotcha! - Episode 2"
+author: "Dr. Nelson Roque"
+format: html
+editor: visual
+---
+
+```{r}
+# Load libraries ----
+library(tidyverse)
+library(stringr)
+```
+
+# Problem: The Leading Zero Disappearing Act
+
+When working with R, we often assume that numbers behave like numbers and text behaves like text.
+
+**But what happens when something looks numeric… but isn’t supposed to be?**
+
+Let’s talk about one of the most dangerous silent data corruption traps in R:
+
+👉 Leading zeros.
+
+------------------------------------------------------------------------
+
+## The Setup: IDs That Look Numeric
+
+Many datasets contain identifiers such as:
+
+- Participant IDs  
+- ZIP codes  
+- Device serial numbers  
+- Census or FIPS codes  
+- Visit labels  
+
+These fields often contain leading zeros.
+
+Let’s simulate a very normal dataset:
+
+```{r}
+df <- tibble(
+  participant_id = c("00123", "04567", "08901"),
+  visit_score = c(10, 12, 9)
+)
+
+df
+```
+
+Looks harmless enough.
+
+------------------------------------------------------------------------
+
+## The Sneaky Pipeline Step
+
+Now imagine we want to standardize column types during preprocessing.
+
+```{r}
+df_bad <- df %>%
+  mutate(participant_id = as.integer(participant_id)) %>%
+  mutate(participant_id = as.character(participant_id))
+
+df_bad
+```
+
+### Wait…
+
+Where did the zeros go?
+
+------------------------------------------------------------------------
+
+## What Just Happened?
+
+R numeric types store **values**, not formatting.
+
+Mathematically:
+
+```
+00123 == 123
+```
+
+From a data integrity perspective?
+
+Absolutely not.
+
+------------------------------------------------------------------------
+
+## Problem, Visualized
+
+Let’s compare the original IDs against the converted ones:
+
+```{r}
+compare_ids <- tibble(
+  original = df$participant_id,
+  converted = df_bad$participant_id
+)
+
+compare_ids
+```
+
+Definitely something funky when you stare with your eyeballs.
+
+------------------------------------------------------------------------
+
+## Why This Is Dangerous
+
+Once the leading zeros are removed:
+
+- Longitudinal joins may fail  
+- Database lookups may mismatch  
+- Geospatial merges may break  
+- Duplicate IDs may be created  
+- Original formatting is permanently lost  
+
+And here’s the scary part…
+
+👉 R will not warn you.
+
+------------------------------------------------------------------------
+
+## A Hidden Source: CSV Import Guessing
+
+Sometimes the issue starts before your pipeline even runs.
+
+```{r}
+# Simulate CSV import behavior
+temp <- readr::type_convert(df)
+temp
+```
+
+Column type guessing can silently coerce identifiers into numeric types depending on data patterns.
+
+------------------------------------------------------------------------
+
+## Data Quality Checks: Can You Spot It?
+
+Missingness checks won’t reveal formatting loss:
+
+```{r}
+colMeans(is.na(df))
+colMeans(is.na(df_bad))
+```
+
+Both appear identical.
+
+Sneaky.
+
+------------------------------------------------------------------------
+
+## The Ultimate Check: Did We Corrupt Our IDs?
+
+Let’s use hashing again 👀
+
+```{r}
+library(digest)
+
+hash_original <- digest::digest(df$participant_id)
+hash_converted <- digest::digest(df_bad$participant_id)
+
+hash_original == hash_converted
+```
+
+If `FALSE`, something changed.
+
+------------------------------------------------------------------------
+
+## A Bonus Gotcha: Octal Confusion
+
+Historically, numbers starting with `0` signaled **octal notation** in some programming languages.
+
+Example:
+
+```
+010
+```
+
+Equals:
+
+```
+8 (base 8)
+```
+
+Modern R rarely interprets data this way directly, but this legacy behavior explains why leading zeros can be risky when parsed numerically.
+
+------------------------------------------------------------------------
+
+## The Safe Pattern
+
+### Treat Identifiers As Character Always
+
+```{r}
+df_safe <- df %>%
+  mutate(participant_id = as.character(participant_id))
+```
+
+------------------------------------------------------------------------
+
+### If Padding Is Required
+
+```{r}
+df_safe %>%
+  mutate(participant_id = str_pad(participant_id, width = 5, pad = "0"))
+```
+
+------------------------------------------------------------------------
+
+## Defensive Programming: Build Guard Rails
+
+Here’s a small helper function:
+
+```{r}
+safe_id <- function(x, width = NULL) {
+
+  x <- as.character(x)
+
+  if (!is.null(width)) {
+    x <- stringr::str_pad(x, width, pad = "0")
+  }
+
+  x
+}
+```
+
+------------------------------------------------------------------------
+
+## Real-World Pipeline Check
+
+If you want to scan for possible leading zero loss:
+
+```{r}
+df %>%
+  mutate(id_length = nchar(participant_id))
+```
+
+Unexpected length variation can signal corruption.
+
+------------------------------------------------------------------------
+
+## Takeaways: How to Avoid This Gotcha
+
+✅ Identifiers are not numeric data  
+✅ Avoid converting ID columns to integer  
+✅ Explicitly specify column types during import  
+✅ Use padding utilities when formatting matters  
+✅ Hash or length-check identifiers during QC  
+
+------------------------------------------------------------------------
+
+## Acknowledgements
+
+Shoutout to every analyst who has ever debugged a mysterious join failure caused by leading zeros disappearing into the void.
+
+You are not alone.
+
+------------------------------------------------------------------------
+
+**Stay tuned for more moments when R Gotcha!** 🚀  
+
+📌 *Got an R gotcha you’d like us to cover? Open an issue on GitHub and suggest a topic!*
