@@ -40,11 +40,12 @@ We release **weekly/monthly "episodes"** covering different R gotchas!
 | Episode | Topic | Description |
 |---------|-------|-------------|
 | PILOT | Isn't it the Same Dataset? | Weird file reading fun. |
-| 1️⃣ | Quirky Date Things | Unusual date formats, time zone surprises, and how to avoid common datetime pitfalls. |
-| 2️⃣ | File Writing Fun | How file paths, encodings, and permissions can trip you up when working with files. |
-| 3️⃣ | Why You Hash | The role of checksums in data management. |
-| 4️⃣ | Data Frames That Aren’t | When your data isn’t quite a data frame (tibbles, lists, etc.), and how to handle them. |
-| 5️⃣ | `NA` vs. `NULL` vs. `NaN` | Understanding the nuances between missing values, empty values, and undefined numbers. |
+| 2 | Where is my Zero? | Leading zeroes are tricky! |
+| ? | Quirky Date Things | Unusual date formats, time zone surprises, and how to avoid common datetime pitfalls. |
+| ? | File Writing Fun | How file paths, encodings, and permissions can trip you up when working with files. |
+| ? | Why You Hash | The role of checksums in data management. |
+| ? | Data Frames That Aren’t | When your data isn’t quite a data frame (tibbles, lists, etc.), and how to handle them. |
+| ? | `NA` vs. `NULL` vs. `NaN` | Understanding the nuances between missing values, empty values, and undefined numbers. |
 
 📌 *Got an R gotcha you’d like us to cover? [Open an issue](https://github.com/nelsonroque/rgotcha/issues) and suggest a topic!*
 
